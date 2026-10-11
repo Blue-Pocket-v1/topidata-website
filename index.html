@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Topi Data is building the world's largest neural databank, bringing together brain data from underrepresented demographics for a more complete understanding of the human mind.">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f4efdf" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#111713" media="(prefers-color-scheme: dark)">
+  <title>Topi Data — Largest Neural Databank</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f4efdf;
+      --ink: #302e28;
+      --muted: #5f574c;
+      --line: #d7cfbd;
+      --orange: #943d25;
+      --surface: #eae2d1;
+      --surface-line: #cbbfaa;
+      --selection: #eac5a8;
+      --brain-fill: #efe1c9;
+      --paper-texture: url("assets/crinkled-paper.webp");
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        color-scheme: dark;
+        --paper: #111713;
+        --ink: #f0eee6;
+        --muted: #b2b8ac;
+        --line: #39423b;
+        --orange: #ed956f;
+        --surface: #19211b;
+        --surface-line: #465047;
+        --selection: #77402d;
+        --brain-fill: #302b24;
+        --paper-texture: linear-gradient(rgb(0 0 0 / .28), rgb(0 0 0 / .28)), url("assets/crinkled-paper-dark.webp");
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 32px; }
+    body { margin: 0; background: var(--paper); background-image: var(--paper-texture); background-size: 1536px 1536px; color: var(--ink); font-family: Arial, Helvetica, sans-serif; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible { outline: 2px solid var(--orange); outline-offset: 7px; }
+    a:hover { color: var(--orange); }
+    ::selection { background: var(--selection); color: var(--ink); }
+    .wrap { width: min(1240px, calc(100% - 112px)); margin-inline: auto; }
+    .eyebrow { margin: 0; font: 11px/1.6 "Courier New", monospace; letter-spacing: 1.6px; text-transform: uppercase; }
+    .wordmark { display: inline-flex; align-items: center; gap: 11px; font-size: 27px; font-weight: 700; letter-spacing: -1.5px; }
+    .brand-icon { width: 28px; height: 28px; color: var(--orange); }
+    .skip-link { position: absolute; top: -100px; left: 24px; padding: 12px; background: var(--paper); z-index: 1; }
+    .skip-link:focus { top: 12px; }
+
+    header { display: flex; justify-content: space-between; align-items: center; min-height: 100px; border-bottom: 1px solid var(--line); gap: 24px; }
+    nav { display: flex; gap: 32px; font-size: 13px; }
+    nav a { padding-block: 14px; }
+
+    .hero { display: grid; grid-template-columns: 1.05fr 1fr; align-items: center; gap: 16px; padding-block: 76px 64px; }
+    .hero-copy { position: relative; z-index: 1; }
+    .hero .eyebrow { color: var(--orange); }
+    h1 { margin: 29px 0 25px; font: normal clamp(60px, 6.8vw, 94px)/1.02 Georgia, "Times New Roman", serif; letter-spacing: -5px; }
+    h1 span { display: block; }
+    .intro { max-width: 390px; margin: 0; font-size: 20px; line-height: 1.6; }
+    .text-link { display: inline-flex; gap: 36px; align-items: center; margin-top: 32px; padding-bottom: 9px; border-bottom: 1px solid var(--orange); font-size: 13px; font-weight: 600; }
+    .text-link span { color: var(--orange); font-size: 20px; }
+    .brain-figure { margin: 0; min-width: 0; }
+    .brain-figure svg { display: block; width: 100%; height: auto; }
+    figcaption { display: flex; justify-content: space-between; gap: 16px; padding: 14px 18px 0; color: var(--muted); font: 10px/1.6 "Courier New", monospace; letter-spacing: .6px; }
+
+    .pillars { display: grid; grid-template-columns: repeat(2, 1fr); padding-block: 30px; border-block: 1px solid var(--line); text-align: center; }
+    .pillar { padding-inline: 32px; border-left: 1px solid var(--line); }
+    .pillar:first-child { border-left: 0; }
+    .pillar h2 { margin: 0 0 8px; font-size: 27px; font-weight: 400; letter-spacing: -.5px; }
+    .pillar p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.6; }
+
+    .mission { display: grid; grid-template-columns: 1fr 1fr; gap: 90px; padding-block: 96px; }
+    .section-title { margin: 20px 0 0; font: normal 47px/1.12 Georgia, "Times New Roman", serif; letter-spacing: -1.8px; }
+    .mission-copy { padding-top: 32px; }
+    .mission-copy p { margin: 0 0 20px; color: var(--muted); font-size: 16px; line-height: 1.8; }
+    .mission-copy p:first-child { color: var(--ink); font-size: 21px; line-height: 1.6; }
+
+    .approach { padding: 50px 48px; background: var(--surface); }
+    .approach-heading { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-bottom: 40px; }
+    .approach-heading h2 { margin: 0; font: normal 33px/1.2 Georgia, "Times New Roman", serif; letter-spacing: -1px; }
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 42px; padding: 0; margin: 0; list-style: none; }
+    .step-number { display: block; padding-bottom: 15px; margin-bottom: 23px; border-bottom: 1px solid var(--surface-line); color: var(--orange); font: 12px "Courier New", monospace; }
+    .steps h3 { margin: 0 0 13px; font-size: 16px; font-weight: 500; }
+    .steps p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.75; }
+
+    footer { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-block: 43px; margin-top: 40px; }
+    footer .wordmark { font-size: 21px; }
+    footer p { color: var(--muted); font-size: 12px; }
+    footer > a { font-size: 12px; }
+
+    @media (min-width: 1440px) {
+      .hero { padding-block: 90px 76px; }
+    }
+
+    @media (max-width: 1000px) {
+      .wrap { width: calc(100% - 64px); }
+      h1 { font-size: 65px; letter-spacing: -3.5px; }
+      .hero { padding-block: 60px; gap: 0; }
+      .mission { gap: 48px; }
+      .section-title { font-size: 40px; }
+      .approach { padding: 36px 30px; }
+      .steps { gap: 26px; }
+    }
+
+    @media (max-width: 700px) {
+      .wrap { width: calc(100% - 40px); }
+      header { min-height: 82px; gap: 16px; }
+      .wordmark { font-size: 23px; gap: 8px; }
+      .brand-icon { width: 23px; height: 23px; }
+      nav { gap: 19px; font-size: 12px; }
+      nav a:last-child { display: none; }
+      .hero { grid-template-columns: 1fr; gap: 35px; padding-block: 50px 34px; }
+      h1 { font-size: clamp(52px, 10.5vw, 72px); letter-spacing: -3px; margin-top: 23px; }
+      .intro { max-width: 370px; font-size: 18px; }
+      .text-link { margin-top: 24px; }
+      .brain-figure { width: min(100%, 470px); justify-self: center; }
+      figcaption { padding-inline: 6px; font-size: 11px; }
+      .pillars { padding-block: 23px; }
+      .pillar { padding-inline: 12px; }
+      .pillar h2 { font-size: 19px; }
+      .pillar p { font-size: 11px; }
+      .mission { grid-template-columns: 1fr; gap: 22px; padding-block: 58px; }
+      .section-title { max-width: 440px; font-size: 39px; }
+      .mission-copy { padding-top: 0; }
+      .mission-copy p:first-child { font-size: 19px; }
+      .mission-copy p:last-child { margin-bottom: 0; }
+      .approach { padding: 30px 24px; }
+      .approach-heading { align-items: flex-start; flex-direction: column-reverse; gap: 13px; margin-bottom: 30px; }
+      .approach-heading h2 { font-size: 31px; }
+      .steps { grid-template-columns: 1fr; gap: 28px; }
+      .step-number { margin-bottom: 15px; padding-bottom: 12px; }
+      .steps h3 { margin-bottom: 8px; }
+      footer { flex-wrap: wrap; margin-top: 18px; padding-block: 28px; gap: 14px; }
+      footer p { order: 3; width: 100%; margin: 0; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+<body id="top">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="wrap">
+    <header>
+      <a class="wordmark" href="#top" aria-label="Topi Data home">
+        <svg class="brand-icon" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+          <path d="M2 15h5l3-9 5 17 4-12 3 4h4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        topi data
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="#databank">Databank</a>
+        <a href="#mission">Mission</a>
+        <a href="#approach">Our approach</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <h1 id="hero-title">The Largest Brain Databank</h1>
+          <p class="intro">Taking consumer research beyond the lab.</p>
+        </div>
+
+        <figure class="brain-figure">
+          <svg viewBox="0 0 560 470" role="img" aria-labelledby="brain-title brain-description">
+            <title id="brain-title">Many connections. A fuller picture of the human brain.</title>
+            <desc id="brain-description">A stylized overhead view of the brain, with two hemispheres, curved cortical folds, and a network of connected points. An illustration of neural data, not a measured brain scan.</desc>
+            <defs>
+              <g id="hemisphere">
+                <path d="M270 107C270 71 246 57 222 70C193 68 171 90 159 111C135 122 122 144 119 168C99 185 92 208 98 231C82 255 84 280 98 300C93 327 110 355 134 366C144 391 167 402 190 400C211 420 244 419 258 399C273 383 267 359 271 340C275 319 267 299 272 279C276 259 267 240 273 220C276 201 268 181 273 164C277 146 267 126 270 107Z" fill="var(--brain-fill)" stroke="var(--orange)" stroke-width="1.8"/>
+                <g fill="none" stroke="var(--orange)" stroke-width="1.3" stroke-linecap="round" opacity=".8">
+                  <path d="M222 70C201 86 224 109 204 123C183 138 159 121 150 143C140 163 161 175 145 194C134 208 112 204 98 231"/>
+                  <path d="M270 107C250 91 238 108 236 126C232 149 253 151 250 173C246 192 226 184 218 204C210 225 233 238 220 257"/>
+                  <path d="M159 111C163 94 185 94 193 105M204 123C199 147 219 161 205 178C193 192 168 175 165 204C162 230 187 229 184 252"/>
+                  <path d="M273 164C256 175 258 200 242 208M119 168C125 172 137 174 145 170"/>
+                  <path d="M98 231C123 220 140 236 148 251C161 275 180 260 195 275C207 289 225 294 241 282C258 268 269 279 272 288"/>
+                  <path d="M89 271C111 254 131 270 132 287C133 307 113 309 121 333C125 345 143 341 151 354"/>
+                  <path d="M148 251C142 231 158 220 165 219M220 257C233 243 257 248 271 240"/>
+                  <path d="M98 300C111 319 145 309 158 325C175 344 195 330 211 343C230 358 248 345 270 340"/>
+                  <path d="M184 252C172 276 183 294 171 310C166 317 161 319 158 325M241 282C244 305 218 312 211 343"/>
+                  <path d="M134 366C154 352 170 367 175 381C181 397 207 384 216 399C228 414 249 397 258 384"/>
+                  <path d="M151 354C165 357 181 347 183 335M211 343C202 367 228 372 238 365C252 355 259 365 269 370"/>
+                </g>
+              </g>
+            </defs>
+            <use href="#hemisphere"/>
+            <use href="#hemisphere" transform="translate(560 0) scale(-1 1)"/>
+            <!-- An illustrative network, not measured neural connectivity. -->
+            <g fill="none" stroke="var(--orange)" stroke-width=".8" opacity=".4">
+              <path d="M224 88L193 146L246 161L214 215L151 184L193 146L158 123M151 184L111 239L173 276L214 215L246 161M111 239L128 314L173 276L225 309L214 215M128 314L179 365L225 309L244 388L179 365L173 276M128 314L225 309M193 146L214 215"/>
+              <path d="M335 92L371 137L320 182L358 230L411 177L371 137L393 116M411 177L452 250L395 286L358 230L320 182M452 250L427 326L395 286L335 313L358 230M427 326L375 369L335 313L316 392L375 369L395 286M320 182L335 313M411 177L395 286"/>
+              <path d="M246 161Q280 128 320 182M214 215Q280 259 358 230M225 309Q280 341 335 313" stroke-dasharray="3 5"/>
+            </g>
+            <g fill="var(--orange)">
+              <circle cx="224" cy="88" r="3"/><circle cx="158" cy="123" r="2.5"/>
+              <circle cx="193" cy="146" r="5"/><circle cx="246" cy="161" r="3.5"/>
+              <circle cx="151" cy="184" r="4"/><circle cx="214" cy="215" r="5.5"/>
+              <circle cx="111" cy="239" r="4"/><circle cx="173" cy="276" r="5"/>
+              <circle cx="128" cy="314" r="3.5"/><circle cx="225" cy="309" r="4"/>
+              <circle cx="179" cy="365" r="5"/><circle cx="244" cy="388" r="3"/>
+              <circle cx="335" cy="92" r="3"/><circle cx="393" cy="116" r="2.5"/>
+              <circle cx="371" cy="137" r="4"/><circle cx="320" cy="182" r="5"/>
+              <circle cx="411" cy="177" r="4.5"/><circle cx="358" cy="230" r="5.5"/>
+              <circle cx="452" cy="250" r="4"/><circle cx="395" cy="286" r="5"/>
+              <circle cx="427" cy="326" r="3.5"/><circle cx="335" cy="313" r="4"/>
+              <circle cx="375" cy="369" r="4.5"/><circle cx="316" cy="392" r="3"/>
+            </g>
+            <g fill="none" stroke="var(--orange)" stroke-width=".8" opacity=".5">
+              <circle cx="214" cy="215" r="11"/>
+              <circle cx="358" cy="230" r="11"/>
+              <circle cx="179" cy="365" r="10"/>
+            </g>
+          </svg>
+          <figcaption>
+          </figcaption>
+        </figure>
+      </section>
+
+      <section class="pillars" id="databank" aria-label="The neural databank we’re building">
+        <div class="pillar">
+          <h2>Scale</h2>
+          <p>Validating results across more participants</p>
+        </div>
+        <div class="pillar">
+          <h2>Diversity</h2>
+          <p>Including underrepresented demographics</p>
+        </div>
+      </section>
+
+      <section class="mission" id="mission" aria-labelledby="mission-title">
+        <div>
+          <p class="eyebrow">01 / Our mission</p>
+          <h2 class="section-title" id="mission-title">The human brain isn’t one-size-fits-all.<br>Our data shouldn’t be either.</h2>
+        </div>
+        <div class="mission-copy">
+          <p>A better understanding of the brain starts with a broader range of people.</p>
+          <p>Our ambition is to build the world’s largest neural databank. Not just more data, but data that reflects more of humanity: different people, communities, and lived experiences.</p>
+          <p>We’re focusing on underrepresented demographics to build a more representative foundation for neuroscience. By bringing data collection to more people, we aim to make the human picture more complete.</p>
+        </div>
+      </section>
+
+      <section class="approach" id="approach" aria-labelledby="approach-title">
+        <div class="approach-heading">
+          <h2 id="approach-title">More people. Richer neural data.</h2>
+          <p class="eyebrow">02 / Our approach</p>
+        </div>
+        <ol class="steps">
+          <li>
+            <span class="step-number" aria-hidden="true">01 —</span>
+            <h3>Broaden participation.</h3>
+            <p>Reach communities and demographics too often underrepresented in neural datasets.</p>
+          </li>
+          <li>
+            <span class="step-number" aria-hidden="true">02 —</span>
+            <h3>Make collection portable.</h3>
+            <p>We’re developing a 32-channel dry EEG device in the form of a regular cap to bring data collection beyond the lab.</p>
+          </li>
+          <li>
+            <span class="step-number" aria-hidden="true">03 —</span>
+            <h3>Build the databank.</h3>
+            <p>Bring these perspectives together into a large-scale neural dataset, built to reflect the diversity of the human mind.</p>
+          </li>
+        </ol>
+      </section>
+    </main>
+
+    <footer>
+      <a class="wordmark" href="#top">topi data</a>
+      <a href="#top">Back to top ↑</a>
+    </footer>
+  </div>
+</body>
+</html>
