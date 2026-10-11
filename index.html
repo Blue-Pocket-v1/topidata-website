@@ -25,6 +25,9 @@
       --brand: var(--ink);
     }
 
+    header .wordmark { --brand: #5c6b2e; }
+    header .wordmark .brand-icon { filter: brightness(0) saturate(100%) invert(38%) sepia(18%) saturate(900%) hue-rotate(42deg); }
+
     @media (prefers-color-scheme: dark) {
       :root {
         color-scheme: dark;
@@ -58,8 +61,6 @@
     .eyebrow { margin: 0; font: 11px/1.6 "Courier New", monospace; letter-spacing: 1.6px; text-transform: uppercase; }
     .wordmark { display: inline-flex; align-items: center; gap: 11px; font-size: 27px; font-weight: 700; letter-spacing: -1.5px; color: var(--brand); }
     .brand-icon { display: block; width: 44px; height: 48px; object-fit: contain; filter: var(--logo-filter); }
-    header .wordmark { --brand: #5c6b2e; }
-    header .wordmark .brand-icon { filter: brightness(0) saturate(100%) invert(38%) sepia(18%) saturate(900%) hue-rotate(42deg); }
     .skip-link { position: absolute; top: -100px; left: 24px; padding: 12px; background: var(--paper); z-index: 1; }
     .skip-link:focus { top: 12px; }
 
