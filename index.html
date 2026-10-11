@@ -5,51 +5,61 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Topi Data is building the world's largest neural databank, bringing together brain data from underrepresented demographics for a more complete understanding of the human mind.">
   <meta name="color-scheme" content="light dark">
-  <meta name="theme-color" content="#f4efdf" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#111713" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#e7dbc4" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#070f28" media="(prefers-color-scheme: dark)">
   <title>Topi Data — Largest Neural Databank</title>
   <style>
     :root {
       color-scheme: light;
-      --paper: #f4efdf;
-      --ink: #302e28;
-      --muted: #5f574c;
-      --line: #d7cfbd;
-      --orange: #943d25;
-      --surface: #eae2d1;
-      --surface-line: #cbbfaa;
-      --selection: #eac5a8;
-      --brain-fill: #efe1c9;
+      --paper: #e7dbc4;
+      --ink: #202d56;
+      --muted: #505363;
+      --line: #c6b99f;
+      --accent: #234098;
+      --surface: #ded0b5;
+      --surface-line: #b9aa8b;
+      --selection: #c6cce3;
+      --brain-fill: #e8d9bb;
       --paper-texture: url("assets/crinkled-paper.webp");
+      --logo-filter: brightness(0) opacity(.85);
+      --brand: var(--ink);
     }
 
     @media (prefers-color-scheme: dark) {
       :root {
         color-scheme: dark;
-        --paper: #111713;
-        --ink: #f0eee6;
-        --muted: #b2b8ac;
-        --line: #39423b;
-        --orange: #ed956f;
-        --surface: #19211b;
-        --surface-line: #465047;
-        --selection: #77402d;
-        --brain-fill: #302b24;
-        --paper-texture: linear-gradient(rgb(0 0 0 / .28), rgb(0 0 0 / .28)), url("assets/crinkled-paper-dark.webp");
+        --paper: #070f28;
+        --ink: #f5eedf;
+        --muted: #b7c0dc;
+        --line: #24325c;
+        --accent: #edd7ad;
+        --surface: #0b1534;
+        --surface-line: #2a3a68;
+        --selection: #24386e;
+        --brain-fill: #101c42;
+        --paper-texture: url("assets/crinkled-paper-dark.webp");
+        --logo-filter: none;
+        --brand: var(--ink);
       }
+
+      header .wordmark { --brand: var(--ink); }
+      header .wordmark .brand-icon { filter: var(--logo-filter); }
     }
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; scroll-padding-top: 32px; }
     body { margin: 0; background: var(--paper); background-image: var(--paper-texture); background-size: 1536px 1536px; color: var(--ink); font-family: Arial, Helvetica, sans-serif; -webkit-font-smoothing: antialiased; }
     a { color: inherit; text-decoration: none; }
-    a:focus-visible { outline: 2px solid var(--orange); outline-offset: 7px; }
-    a:hover { color: var(--orange); }
+    a:focus-visible { outline: 2px solid var(--accent); outline-offset: 7px; }
+    a:hover { color: var(--accent); }
+    .wordmark, .wordmark:hover { color: var(--brand); }
     ::selection { background: var(--selection); color: var(--ink); }
     .wrap { width: min(1240px, calc(100% - 112px)); margin-inline: auto; }
     .eyebrow { margin: 0; font: 11px/1.6 "Courier New", monospace; letter-spacing: 1.6px; text-transform: uppercase; }
-    .wordmark { display: inline-flex; align-items: center; gap: 11px; font-size: 27px; font-weight: 700; letter-spacing: -1.5px; }
-    .brand-icon { width: 28px; height: 28px; color: var(--orange); }
+    .wordmark { display: inline-flex; align-items: center; gap: 11px; font-size: 27px; font-weight: 700; letter-spacing: -1.5px; color: var(--brand); }
+    .brand-icon { display: block; width: 44px; height: 48px; object-fit: contain; filter: var(--logo-filter); }
+    header .wordmark { --brand: #5c6b2e; }
+    header .wordmark .brand-icon { filter: brightness(0) saturate(100%) invert(38%) sepia(18%) saturate(900%) hue-rotate(42deg); }
     .skip-link { position: absolute; top: -100px; left: 24px; padding: 12px; background: var(--paper); z-index: 1; }
     .skip-link:focus { top: 12px; }
 
@@ -59,12 +69,12 @@
 
     .hero { display: grid; grid-template-columns: 1.05fr 1fr; align-items: center; gap: 16px; padding-block: 76px 64px; }
     .hero-copy { position: relative; z-index: 1; }
-    .hero .eyebrow { color: var(--orange); }
+    .hero .eyebrow { color: var(--accent); }
     h1 { margin: 29px 0 25px; font: normal clamp(60px, 6.8vw, 94px)/1.02 Georgia, "Times New Roman", serif; letter-spacing: -5px; }
     h1 span { display: block; }
     .intro { max-width: 390px; margin: 0; font-size: 20px; line-height: 1.6; }
-    .text-link { display: inline-flex; gap: 36px; align-items: center; margin-top: 32px; padding-bottom: 9px; border-bottom: 1px solid var(--orange); font-size: 13px; font-weight: 600; }
-    .text-link span { color: var(--orange); font-size: 20px; }
+    .text-link { display: inline-flex; gap: 36px; align-items: center; margin-top: 32px; padding-bottom: 9px; border-bottom: 1px solid var(--accent); font-size: 13px; font-weight: 600; }
+    .text-link span { color: var(--accent); font-size: 20px; }
     .brain-figure { margin: 0; min-width: 0; }
     .brain-figure svg { display: block; width: 100%; height: auto; }
     figcaption { display: flex; justify-content: space-between; gap: 16px; padding: 14px 18px 0; color: var(--muted); font: 10px/1.6 "Courier New", monospace; letter-spacing: .6px; }
@@ -85,12 +95,13 @@
     .approach-heading { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-bottom: 40px; }
     .approach-heading h2 { margin: 0; font: normal 33px/1.2 Georgia, "Times New Roman", serif; letter-spacing: -1px; }
     .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 42px; padding: 0; margin: 0; list-style: none; }
-    .step-number { display: block; padding-bottom: 15px; margin-bottom: 23px; border-bottom: 1px solid var(--surface-line); color: var(--orange); font: 12px "Courier New", monospace; }
+    .step-number { display: block; padding-bottom: 15px; margin-bottom: 23px; border-bottom: 1px solid var(--surface-line); color: var(--accent); font: 12px "Courier New", monospace; }
     .steps h3 { margin: 0 0 13px; font-size: 16px; font-weight: 500; }
     .steps p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.75; }
 
     footer { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-block: 43px; margin-top: 40px; }
     footer .wordmark { font-size: 21px; }
+    footer .brand-icon { width: 32px; height: 34px; }
     footer p { color: var(--muted); font-size: 12px; }
     footer > a { font-size: 12px; }
 
@@ -112,7 +123,7 @@
       .wrap { width: calc(100% - 40px); }
       header { min-height: 82px; gap: 16px; }
       .wordmark { font-size: 23px; gap: 8px; }
-      .brand-icon { width: 23px; height: 23px; }
+      .brand-icon { width: 36px; height: 40px; }
       nav { gap: 19px; font-size: 12px; }
       nav a:last-child { display: none; }
       .hero { grid-template-columns: 1fr; gap: 35px; padding-block: 50px 34px; }
@@ -150,9 +161,7 @@
   <div class="wrap">
     <header>
       <a class="wordmark" href="#top" aria-label="Topi Data home">
-        <svg class="brand-icon" viewBox="0 0 28 28" fill="none" aria-hidden="true">
-          <path d="M2 15h5l3-9 5 17 4-12 3 4h4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
+        <img class="brand-icon" src="assets/topilogowhite.png" alt="" width="1216" height="1293">
         topi data
       </a>
       <nav aria-label="Main navigation">
@@ -175,8 +184,8 @@
             <desc id="brain-description">A stylized overhead view of the brain, with two hemispheres, curved cortical folds, and a network of connected points. An illustration of neural data, not a measured brain scan.</desc>
             <defs>
               <g id="hemisphere">
-                <path d="M270 107C270 71 246 57 222 70C193 68 171 90 159 111C135 122 122 144 119 168C99 185 92 208 98 231C82 255 84 280 98 300C93 327 110 355 134 366C144 391 167 402 190 400C211 420 244 419 258 399C273 383 267 359 271 340C275 319 267 299 272 279C276 259 267 240 273 220C276 201 268 181 273 164C277 146 267 126 270 107Z" fill="var(--brain-fill)" stroke="var(--orange)" stroke-width="1.8"/>
-                <g fill="none" stroke="var(--orange)" stroke-width="1.3" stroke-linecap="round" opacity=".8">
+                <path d="M270 107C270 71 246 57 222 70C193 68 171 90 159 111C135 122 122 144 119 168C99 185 92 208 98 231C82 255 84 280 98 300C93 327 110 355 134 366C144 391 167 402 190 400C211 420 244 419 258 399C273 383 267 359 271 340C275 319 267 299 272 279C276 259 267 240 273 220C276 201 268 181 273 164C277 146 267 126 270 107Z" fill="var(--brain-fill)" stroke="var(--accent)" stroke-width="1.8"/>
+                <g fill="none" stroke="var(--accent)" stroke-width="1.3" stroke-linecap="round" opacity=".8">
                   <path d="M222 70C201 86 224 109 204 123C183 138 159 121 150 143C140 163 161 175 145 194C134 208 112 204 98 231"/>
                   <path d="M270 107C250 91 238 108 236 126C232 149 253 151 250 173C246 192 226 184 218 204C210 225 233 238 220 257"/>
                   <path d="M159 111C163 94 185 94 193 105M204 123C199 147 219 161 205 178C193 192 168 175 165 204C162 230 187 229 184 252"/>
@@ -194,12 +203,12 @@
             <use href="#hemisphere"/>
             <use href="#hemisphere" transform="translate(560 0) scale(-1 1)"/>
             <!-- An illustrative network, not measured neural connectivity. -->
-            <g fill="none" stroke="var(--orange)" stroke-width=".8" opacity=".4">
+            <g fill="none" stroke="var(--accent)" stroke-width=".8" opacity=".4">
               <path d="M224 88L193 146L246 161L214 215L151 184L193 146L158 123M151 184L111 239L173 276L214 215L246 161M111 239L128 314L173 276L225 309L214 215M128 314L179 365L225 309L244 388L179 365L173 276M128 314L225 309M193 146L214 215"/>
               <path d="M335 92L371 137L320 182L358 230L411 177L371 137L393 116M411 177L452 250L395 286L358 230L320 182M452 250L427 326L395 286L335 313L358 230M427 326L375 369L335 313L316 392L375 369L395 286M320 182L335 313M411 177L395 286"/>
               <path d="M246 161Q280 128 320 182M214 215Q280 259 358 230M225 309Q280 341 335 313" stroke-dasharray="3 5"/>
             </g>
-            <g fill="var(--orange)">
+            <g fill="var(--accent)">
               <circle cx="224" cy="88" r="3"/><circle cx="158" cy="123" r="2.5"/>
               <circle cx="193" cy="146" r="5"/><circle cx="246" cy="161" r="3.5"/>
               <circle cx="151" cy="184" r="4"/><circle cx="214" cy="215" r="5.5"/>
@@ -213,7 +222,7 @@
               <circle cx="427" cy="326" r="3.5"/><circle cx="335" cy="313" r="4"/>
               <circle cx="375" cy="369" r="4.5"/><circle cx="316" cy="392" r="3"/>
             </g>
-            <g fill="none" stroke="var(--orange)" stroke-width=".8" opacity=".5">
+            <g fill="none" stroke="var(--accent)" stroke-width=".8" opacity=".5">
               <circle cx="214" cy="215" r="11"/>
               <circle cx="358" cy="230" r="11"/>
               <circle cx="179" cy="365" r="10"/>
@@ -273,7 +282,10 @@
     </main>
 
     <footer>
-      <a class="wordmark" href="#top">topi data</a>
+      <a class="wordmark" href="#top" aria-label="Topi Data home">
+        <img class="brand-icon" src="assets/topilogowhite.png" alt="" width="1216" height="1293">
+        topi data
+      </a>
       <a href="#top">Back to top ↑</a>
     </footer>
   </div>
